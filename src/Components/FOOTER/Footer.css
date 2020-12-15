@@ -1,0 +1,45 @@
+.container-footer {
+    width: 100% !important;
+    background-color: #574440;
+    min-height: 450px;
+}
+
+p.footer-slogan {
+    line-height: 2rem !important;
+}
+
+
+p.footer-work {
+    line-height: 2rem !important;
+}
+
+i.fas {
+    font-size: 15px;
+    color: green;
+}
+
+div.md-form {
+    margin: 0px !important;
+}
+
+input {
+    width: 180px !important;
+    margin: 0px !important;
+    transform: translate(13px);
+}
+
+
+p.footer-adress {
+    line-height: 2rem !important;
+}
+
+i.far, i.fas {
+    font-size: 15px;
+}
+
+p.footer-tell {
+    font-size: 0.9rem !important;
+}
+
+
+

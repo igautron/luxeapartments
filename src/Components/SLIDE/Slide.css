@@ -1,0 +1,67 @@
+
+.slide-images {
+   height: 100%;
+   position: relative !important;
+    display: block;
+    top: 0;
+}
+
+.slide-info {
+   height: 100%;
+   position: absolute !important;
+    display: block;
+}
+
+.slide-button {
+    background-color: #a28a7e;
+}
+
+
+
+
+
+.slide-image {
+  height: 570px;
+}
+
+
+.slider {
+  max-height: 450px;
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+
+.slide-text {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.slide-info {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+
+
+@media (max-width: 576px) {
+
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+
+}
+
+
+
+@media (min-width: 1200px) {
+
+}
