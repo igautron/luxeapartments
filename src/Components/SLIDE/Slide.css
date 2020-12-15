@@ -1,4 +1,10 @@
-
+.carousel-item-view{
+  /* position: relative; */
+}
+.slide-info{
+  /* position: absolute; */
+  bottom: 0;
+}
 .slide-images {
    height: 100%;
    position: relative !important;
