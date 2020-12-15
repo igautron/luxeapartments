@@ -5,8 +5,10 @@ import {Link, BrowserRouter as Router, NavLink} from 'react-router-dom';
 import {MDBBtn, MDBCol, MDBRow, MDBInput } from "mdbreact";
 
 
-class Footer extends React.Component  {
+const logoImage = './Image/StandardLogoFiles/OriginalonTransparent.png'
 
+
+class Footer extends React.Component  {
 
     render() {
         return (
@@ -17,7 +19,7 @@ class Footer extends React.Component  {
                            <MDBRow className='flex-wrap w-100'>
                                <MDBCol className='col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 px-0 pl-xl-3 pl-lg-3 pl-md-3 pl-sm-3 pl-4'>
                                    <div className='footer-logo'>
-                                        {/*<img className='w-100 pt-5 pb-4' src={require('')} />*/}
+                                        <img className='w-100 pt-5 pb-4' src={logoImage} />
                                    </div>
                                    <p className='font-weight-normal white-text footer-slogan'>Our resource exists in order to provide you with a comfortable stay in the beautiful city of Odessa.</p>
                                </MDBCol>

@@ -1,15 +1,16 @@
-
-.slide-images {
-   height: 100%;
-   position: relative !important;
-    display: block;
-    top: 0;
+.slide-view {
+    position: relative;
 }
 
-.slide-info {
+.slide-view .slide-image {
+    position: absolute;
    height: 100%;
-   position: absolute !important;
-    display: block;
+   top: 0;
+}
+
+.slide-view .slide-info {
+   height: 100%;
+   position: absolute;
 }
 
 .slide-button {
