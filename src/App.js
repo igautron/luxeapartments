@@ -35,6 +35,9 @@ class App extends React.Component {
                     <Route path='/' exact>
                         <Products />
                     </Route>
+                    <Route path='/category/:category'>
+                        <Products appState={this.state} setUserData={this.setUserData} />
+                    </Route>
                     <Route path='/about' exact>
                         <About />
                     </Route>

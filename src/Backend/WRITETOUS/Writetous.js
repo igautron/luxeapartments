@@ -8,16 +8,15 @@ class Contactform extends React.Component {
 
     state = {
         form: {
-            name: 'Анна',
-            email: 'example@mail.ua',
+            name: 'Olena',
+            email: 'example@gmail.com',
             phone: '+380670000000',
-            company: 'AnnaGroup',
-            message: 'Повідомлення',
-            'send-telegram': 1
+            company: 'OlenaGroup',
+            message: 'How can I get product?',
+            'send-telegram':1,
         },
         alert: ''
     }
-
 
     initial_state = {
         form: {
@@ -26,16 +25,15 @@ class Contactform extends React.Component {
             phone: '',
             company: '',
             message: '',
-            'send-telegram':1
+            'send-telegram':1,
         },
         alert: ''
     }
 
-
     changeInputHandler = (event) => {
-        let dataForm = {...this.state.form}
-        dataForm[event.target.name] = event.target.value
-        this.setState({form: dataForm})
+        let formData = {...this.state.form}
+        formData[event.target.name] = event.target.value
+        this.setState({form: formData})
     }
 
     formSubmit = () => {
@@ -48,14 +46,11 @@ class Contactform extends React.Component {
             this.setState({alert: 'Введіть email!'})
             return false
         }
-        if (this.state.form.phone.trim() === '') {
-            this.setState({alert: 'Введіть номер телефону!'})
-        }
 
-        let url = 'http://yvonneshop.com.ua/telegram/'
+        let url = 'http://luxe-apartments.com/telegram/'
         fetch(url, {
             method: 'POST', // или 'PUT'
-            body: new URLSearchParams(this.state.form).toString(),
+            body: new URLSearchParams(this.state.form).toString(), // данные могут быть 'строкой' или {объектом}!
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then((response) => {
             return response.json();
@@ -69,74 +64,78 @@ class Contactform extends React.Component {
     render() {
         return (
             <div>
-                <div className='container  justify-content-center m-auto pb-5 contacts'>
+                <div className='container  justify-content-center m-auto pb-5 contacts w-100'>
                     <div className='price w-100 m-auto justify-content-center'>
-                        <h1 className='h1-responsive py-5 m-0 font-weight-normal text-center'>ФОРМА ЗВ'ЯЗКУ</h1>
-                        <MDBCard className='p-3 m-auto justify-content-center contact-card'>
+                        <h3 className='h3-responsive  pt-3 pt-sm-5 mb-0 pb-3 pb-md-5 pb-xl-5 pb-lg-5 font-weight-bold text-center'>Message form</h3>
+                        <MDBCard className='p-0 p-sm-3 m-auto justify-content-center contact-card'>
                             <MDBRow className='pt-0'>
                                 <div lg="12" className='w-100'>
                                     <MDBCardBody className="form">
                                         <p className='text-center contact-text'>
-                                            <MDBIcon icon="envelope" className="pr-2 pt-3" />
-                                            Напишіть нам:
+                                            <MDBIcon icon="envelope" className="pr-2 py-4" />
+                                            Write to us:
                                         </p>
                                         <p className='px-3' style={{color:'green'}}>{this.state.alert}</p>
-                                        <div className='d-inline-flex w-100'>
-                                            <div className='w-50 h-100 col-contact px-3 m-0'>
-                                                <div className="mb-0 h-100 m-0">
-                                                    <MDBInput
-                                                        type="text"
-                                                        id="form-contact-name"
-                                                        label="Ваше ім'я"
-                                                        className='m-0 w-100 h-100'
-                                                        name='name'
-                                                        value={this.state.form.name}
-                                                        onChange={this.changeInputHandler}
-                                                    />
-                                                </div>
+                                      <div className='pt-3'>
+                                        <div className='d-inline-flex flex-wrap px-3 mb-0 mb-sm-4 h-100 w-100 col-contact'>
+                                                <div className='w-50 px-3 contact-area'>
+                                                    <div className="md-form m-0 h-100">
+                                                        <MDBInput
+                                                            type="textarea"
+                                                            id="form-contact-name"
+                                                            label="Your name"
+                                                            name='name'
+                                                            value={this.state.form.name}
+                                                            onChange={this.changeInputHandler}
+                                                            className='w-100'
+                                                        />
+                                                    </div>
                                             </div>
-                                            <div className='w-50 h-100 col-contact px-3'>
-                                                <div className="mb-0 h-100 m-0">
+                                            <div className='w-50 px-3 contact-area'>
+                                                <div className="md-form m-0 h-100">
                                                     <MDBInput
-                                                        type="text"
+                                                        type="textarea"
                                                         id="form-contact-email"
-                                                        label="Email"
+                                                        label="Your email"
                                                         name='email'
                                                         value={this.state.form.email}
                                                         onChange={this.changeInputHandler}
+                                                        className='w-100'
                                                     />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='d-inline-flex w-100 mb-4'>
-                                            <div className='w-50 h-100 col-contact px-3'>
-                                                <div className=" mb-0 mt-2">
+                                        <div className='d-inline-flex flex-wrap px-3 mb-0 mb-sm-4 h-100 w-100 col-contact'>
+                                            <div className='w-50 px-3 contact-area'>
+                                                <div className="md-form m-0">
                                                     <MDBInput
-                                                        type="text"
+                                                        type="textarea"
                                                         id="form-contact-phone"
-                                                        label="Номер телефону"
-                                                        name="phone"
+                                                        label="Your phone"
+                                                        name='phone'
                                                         value={this.state.form.phone}
                                                         onChange={this.changeInputHandler}
+                                                        className='w-100'
                                                     />
                                                 </div>
                                             </div>
-                                            <div className='w-50 h-100 col-contact px-3'>
-                                                <div className="md-form mb-0 mt-2 ">
+                                            <div className='w-50 px-3 contact-area'>
+                                                <div className="md-form m-0 h-100">
                                                     <MDBInput
-                                                        type="text"
+                                                        type="textarea"
                                                         id="form-contact-company"
-                                                        label="Ваша компанія"
+                                                        label="Your company"
                                                         name='company'
                                                         value={this.state.form.company}
                                                         onChange={this.changeInputHandler}
+                                                        className='w-100'
                                                     />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='px-3 mb-5 h-100 col-contact'>
-                                            <div md="12">
-                                                <div className="md-form m-0">
+                                        <div className='px-3 mb-4 h-100'>
+                                            <div className="w-100 px-3 ">
+                                                <div className="md-form m-0 h-100">
                                                     <MDBInput
                                                         type="textarea"
                                                         id="form-contact-message"
@@ -144,11 +143,13 @@ class Contactform extends React.Component {
                                                         name='message'
                                                         value={this.state.form.message}
                                                         onChange={this.changeInputHandler}
+                                                        className='w-100'
                                                     />
                                                 </div>
                                             </div>
                                         </div>
-                                        <MDBBtn onClick={this.formSubmit} rounded color="purple" className='mb-3 justify-content-center m-auto d-block'>
+                                      </div>
+                                        <MDBBtn onClick={this.formSubmit} rounded className='btn-submit mb-3 justify-content-center m-auto d-block'>
                                              Надіслати
                                         </MDBBtn>
                                     </MDBCardBody>

@@ -5,7 +5,14 @@ import {
     MDBNavItem,
     MDBNavLink, MDBRow,
     MDBTabContent, MDBTable, MDBTableBody,
-    MDBTabPane
+    MDBTabPane,
+    MDBCarouselInner,
+    MDBView,
+    MDBCarouselItem,
+    MDBContainer,
+    MDBCarousel
+
+
 } from "mdbreact";
 import React from "react";
 
@@ -26,22 +33,16 @@ class Details extends React.Component {
 
         product:{
             image: '',
-            articul: '',
             title: '',
-            kind: '',
-            brand: '',
-            amount: '',
-            appointment: '',
-            type: '',
-            descr2: '',
-            components: '',
+            id: '',
+            city: '',
+            meters: '',
+            category: '',
+            descr: '',
             price: '',
-            descr3: '',
-            composition: '',
-            sposib: '',
+            area: ''
         },
 
-        gender_arr: 'defaul!!!'
     }
 
 
@@ -67,102 +68,145 @@ class Details extends React.Component {
 
     componentDidMount(props) {
         const itemId = window.location.pathname.split('/').pop()
-        fetch('http://yvonne-server.loc/products/'+itemId)
+        fetch('http://luxapartments-server.loc/products/'+itemId)
             .then(response => response.json())
-            .then(product => {
-              this.setState({product: product.data})
-              this.get_appo(product.data)
-            })
+            .then(products => this.setState( {products: products.products.data}));
+
 
         const data = {
             "status": "ok",
             "product": {
                 "image": "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-                "articul": "vwebertbtml",
                 "title": "super product 1",
-                "kind": "vwebertbtml",
-                "brand": "Davines",
-                "amount": "vwebertbtml",
-                "appointment": "vwebertbtml",
-                "type": "Шампунь",
-                "descr2": "vwebertbtml",
-                "components": "vwebertbtml",
+                "descr": "vwebertbtml",
                 "price":"11.99",
-                "gender": "vwebertbtml",
-                "composition": "vwebertbtml",
-                "sposib": "vwebertbtml",
-
+                "id": "vwebertbtml",
+                "city": "vwebertbtml",
+                "meters": "vwebertbtml",
+                "category": "vwebertbtml",
+                "stage": "10",
+                "terrace": "small balcony",
+                "area": "center"
             },
         };
         this.setState({product: data.product});
     }
 
 
-
-    get_appo(product) {
-        let gender_app = []
-        if(product.woman) gender_app.push('для жінок')
-        if(product.man)   gender_app.push('для чоловіків')
-        if(product.child) gender_app.push('для дітей')
-        if(product.molod) gender_app.push('для молоді')
-        this.setState({gender_app: gender_app.join(', ')})
-    }
-
-
-
-
-
-
     render() {
-        let image, articul, title, kind, brand, amount, appointment, type, sfera, descr2, components, price, descr3, composition, sposib, country ;
+        let image, title, descr, price, id , city, meters, category, stage, terrace;
 
         if (this.state.product) {
             image = this.state.product.image;
-            articul = this.state.product.articul;
             title = this.state.product.title;
-            kind = this.state.product.kind;
-            brand = this.state.product.brand;
-            amount = this.state.product.amount;
-            appointment = this.state.product.appointment;
-            type = this.state.product.type;
-            sfera = this.state.product.sfera;
-            descr2 = this.state.product.descr2;
-            components = this.state.product.components;
+            descr = this.state.product.descr;
             price = this.state.product.price;
-            descr3 = this.state.product.descr3;
-            composition = this.state.product.composition;
-            sposib = this.state.product.sposib;
-            country = this.state.product.country;
+            id = this.state.product.id;
+            city = this.state.product.city;
+            meters = this.state.product.meters;
+            category = this.state.product.category;
+            stage = this.state.product.stage;
+            terrace = this.state.product.terrace;
 
         }
         return (
-            <div>
-                <div className='container'>
-                    <div className='pt-3'>
-                        <button type="button" className="btn btn-link float-left w-100 border-danger"><MDBIcon icon="arrow-left" className='text-left float-left '/></button>
-                        <div className='d-inline-flex '>
-                            <MDBCol sm='6' md='6' lg='6' xl='5' className='m-0'>
-                                <div className='p-1 m-0 p-2'>
-                                    <img className='m-auto w-100 justify-content-center d-block' src={image} />
+            <div className='details-container'>
+                <div className='container w-100'>
+                    <div className='py-0 py-sm-5 w-100'>
+                        <button type="button" className="btn btn-link float-left w-100 border-danger px-3"><MDBIcon icon="arrow-left" className='text-left float-left'/></button>
+                        <div className='d-inline-flex flex-wrap w-100'>
+                            <MDBCol sm='12' md='6' lg='6' xl='6' className='m-0 w-100'>
+                                <div className='p-1 m-0 p-2 w-100'>
+                                        <MDBCarousel
+                                            activeItem={1}
+                                            length={3}
+                                            showControls={true}
+                                            showIndicators={true}
+                                            className="z-depth-1"
+                                        >
+                                            <MDBCarouselInner>
+                                                <MDBCarouselItem itemId="1">
+                                                    <MDBView>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={image}
+                                                            alt="First slide"
+                                                        />
+                                                    </MDBView>
+                                                </MDBCarouselItem>
+                                                <MDBCarouselItem itemId="2">
+                                                    <MDBView>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={image}
+                                                            alt="Second slide"
+                                                        />
+                                                    </MDBView>
+                                                </MDBCarouselItem>
+                                                <MDBCarouselItem itemId="3">
+                                                    <MDBView>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={image}
+                                                            alt="Third slide"
+                                                        />
+                                                    </MDBView>
+                                                </MDBCarouselItem>
+                                                <MDBCarouselItem itemId="3">
+                                                    <MDBView>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={image}
+                                                            alt="Fourth slide"
+                                                        />
+                                                    </MDBView>
+                                                </MDBCarouselItem>
+                                                <MDBCarouselItem itemId="3">
+                                                    <MDBView>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={image}
+                                                            alt="Fifth slide"
+                                                        />
+                                                    </MDBView>
+                                                </MDBCarouselItem>
+                                                <MDBCarouselItem itemId="3">
+                                                    <MDBView>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={image}
+                                                            alt="sixth slide"
+                                                        />
+                                                    </MDBView>
+                                                </MDBCarouselItem>
+                                            </MDBCarouselInner>
+                                        </MDBCarousel>
                                 </div>
                             </MDBCol>
-                            <MDBCol sm='6' md='6' lg='6' xl='7' className='p-2 m-0'>
-                                <div className='p-2'>
+                            <MDBCol sm='12' md='6' lg='6' xl='6' className='p-2 m-0'>
+                                <div className='px-3'>
                                     <h3 className='font-weight-normal'>{title}</h3>
-                                    <p className='font-weight-bold py-1 m-0 grey-text'>Артикул:<span className='font-weight-normal'>{articul}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Вид товару: <span className='font-weight-normal'>{kind}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Торгівельна марка: <span className='font-weight-normal'>{brand}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Об'єм: <span className='font-weight-normal'>{amount}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Призначення: <span className='font-weight-normal'>{appointment}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Тип: <span className='font-weight-normal'>{type}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Сфера застосування: <span className='font-weight-normal'>{sfera}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Опис: <span className='font-weight-normal'>{descr2}</span></p>
-                                    <p className='font-weight-bold py-1 m-0'>Активні компоненти: <span className='font-weight-normal'>{components}</span></p>
-                                    <p className='bg-white p-0 green-text py-1 m-0'><span className='font-weight-bold'><i className="fas fa-check green-text font-weight-bold p-2"></i>В наявності</span></p>
-                                    <p className='font-weight-bold py-1 m-0 price'>Ціна: <span className='font-weight-bold py-1 m-0'>{price}</span></p>
-                                    <div className='d-inline-flex flex-wrap text-center w-100 py-4 m-0'>
-                                        <button className='float-left m-0 item-to-cart white-text border-0 z-depth-1 mr-5'>В КОРЗИНУ</button>
-                                        <button className='float-left m-0 item-to-cart white-text border-0 z-depth-1'>КУПИТИ</button>
+                                    <p className='font-weight-bold py-1 m-0 '>City: <span className='font-weight-normal'>{city}</span></p>
+                                    <p className='font-weight-bold py-1 m-0'>Category: <span className='font-weight-normal'>{category}</span></p>
+                                    <p className='font-weight-bold py-1 m-0'>Meters(general/residential/kitchen): <span className='font-weight-normal'>{meters}</span></p>
+                                    <p className='font-weight-bold py-1 m-0'>Stage: <span className='font-weight-normal'>{stage}</span></p>
+                                    <p className='font-weight-bold py-1 m-0'>Terrace: <span className='font-weight-normal'>{terrace}</span></p>
+                                    <p className='font-weight-bold py-1 m-0'>Description: <span className='font-weight-normal'>{descr}</span></p>
+                                    <p className='font-weight-bold py-1 m-0'>Price: <span className='font-weight-normal py-1 m-0'>{price}</span>$</p>
+                                    <p className='font-weight-bold py-1 pb-3 m-0 w-100'>Contact us: </p>
+                                    <div className='d-inline-flex flex-wrap text-left w-100 pb-4 m-0'>
+                                        <p className="text-left  w-100" >
+                                            <a href='tel:+380671088799' className='price black-ic font-weight-normal'>
+                                                <MDBIcon icon="phone" className="pr-3"/>
+                                                +38 067 108 87 99
+                                            </a>
+                                        </p>
+                                        <p href='#' className="text-left w-100" >
+                                            <a href='tel:+380677587710' className='price black-ic font-weight-normal'>
+                                                <MDBIcon icon="phone" className="pr-3"/>
+                                                +38 067 758 77 10
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </MDBCol>

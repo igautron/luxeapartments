@@ -9,43 +9,84 @@ import details from './Details'
 
 class Item extends React.Component {
 
+    state = {
+
+        product:{
+            image: '',
+            title: '',
+            id: '',
+            city: '',
+            meters: '',
+            category: '',
+            descr: '',
+            price: ''
+        },
+    }
+
+
+    componentDidMount(props) {
+        const itemId = window.location.pathname.split('/').pop()
+        fetch('http://luxapartments-server.loc/products/'+itemId)
+            .then(response => response.json())
+            .then(products => this.setState( {products: products.products.data}));
+
+
+        const data = {
+            "status": "ok",
+            "product": {
+                "image": "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                "title": "super product 1",
+                "descr": "vwebertbtml",
+                "price": "11.99",
+                "id": "vwebertbtml",
+                "city": "vwebertbtml",
+                "meters": "vwebertbtml",
+                "category": "vwebertbtml",
+                "stage": "10",
+                "terrace": "small balcony",
+                "area": "center"
+            },
+        };
+        this.setState({product: data.product});
+    }
     render() {
 
-        let id, image, descr, price, title
+        let id, image, descr, price, title, city, meters, category, stage, terrace, area;
 
-        if (this.props.product) {
-            id = this.props.id;
-            image = this.props.image;
-            descr = this.props.descr;
-            price = this.props.price;
-            title = this.props.title;
+        if (this.state.product) {
+            image = this.state.product.image;
+            title = this.state.product.title;
+            descr = this.state.product.descr;
+            price = this.state.product.price;
+            id = this.state.product.id;
+            city = this.state.product.city;
+            meters = this.state.product.meters;
+            category = this.state.product.category;
+            stage = this.state.product.stage;
+            terrace = this.state.product.terrace;
+            area = this.state.product.area;
+
         }
 
         return (
-            <MDBCard className='border-0' >
+            <MDBCard className='border-0 p-0 z-depth-2' >
                 <Link to={'/details/'+id}
-                    className='text-white text-center align-items-center p-0'>
-                    <MDBCardImage
-                        src={image}
-                        className='img-fluid w-100 prod-img'
-                        alt=''>
-                    </MDBCardImage>
-                    <MDBCardBody className='w-responsive w-100 m-0 p-0 '>
-                        <p className='prod-name text-left font-weight-bold pl-0 pb-0 mb-1 w-100'>{title}</p>
-                        <MDBLink
-                            color='primary'
-                            href='!#'
-                            style={{marginBottom: '1rem'}}
-                            className='text-left p-0 pb-0 mb-1'
-                        >
-                            <p className='prod-describe black-text m-0 '>{descr}
-                            </p>
-                        </MDBLink>
-                        <p className='prod-price black-text py-1 text-left'>Ціна: <span>{price} </span>грн</p>
-                        <div>
-                            <button className='prod-btn white-text z-depth-1 p-2 border-0 justify-content-center m-0 align-content-center'>В КОРЗИНУ</button>
-                        </div>
-                    </MDBCardBody>
+                      className='text-white text-center align-items-center p-0'>
+                    <div className='prod-img-lux'>
+                        <img
+                            src={image}
+                            className='img-fluid w-100'
+                            alt=''
+                        />
+                    </div>
+                    <div className='w-responsive w-100 m-0 p-0 prod-body-lux'>
+                        <p className='prod-name-lux text-left font-weight-bold py-0 px-3 pb-0 mb-1 pt-2 w-100 black-ic'>{title}</p>
+                        <p className='prod-city-lux text-left font-weight-bold py-0 px-3 pb-0 mb-1 w-100 black-ic'>City: <span className='font-weight-normal'>{city}</span></p>
+                        <p className='prod-city-lux text-left font-weight-bold py-0 px-3 pb-0 mb-1 w-100 black-ic'>Area: <span className='font-weight-normal'>{area}</span></p>
+                        <p className='prod-meters-lux text-left font-weight-bold py-0 px-3 pb-0 mb-1 w-100 black-ic'>Meters: <span className='font-weight-normal'>{meters}</span></p>
+                        <p className='prod-descr-lux black-text m-0 text-left py-0 px-3 black-ic font-weight-bold'>Description: <span className='font-weight-normal'>{descr}</span></p>
+                        <p className='prod-price-lux black-text py-1 text-left font-weight-bold pt-1 pb-3 px-3 m-0 black-ic'>Price: <span className='font-weight-normal'>{price} $</span></p>
+                    </div>
                 </Link>
             </MDBCard>
         )

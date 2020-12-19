@@ -3,6 +3,27 @@ button{
     transform: translateX(50) !important;
 }
 
-div.menu-details {
-     background-color: #83A34A !important;
+.details-container {
+    background-color: #faece3;
+}
+
+.prod-img-lux {
+    height: 250px;
+    overflow: hidden;
+}
+
+.prod-body {
+    height: 200px;
+}
+
+.prod-name-lux {
+    height: 50px !important;
+}
+
+.price {
+    font-size: 20px;
+}
+
+.prod-body-lux {
+    background-color: #faece3;
 }

@@ -1,0 +1,52 @@
+.about-block {
+    background-color: #faece3;
+}
+
+
+.about-odessa-text {
+    text-indent: 1.5em;
+}
+
+p.about-odessa-text {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.logo-image {
+    width: 300px!important;
+}
+
+
+
+
+@media (max-width: 576px) {
+    .logo-image {
+        width: 100% !important;
+    }
+    .about-odessa-text {
+        text-indent: 1rem;
+    }
+
+    .logo-image {
+        width: 250px!important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+   
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+
+}
+
+
+@media (min-width: 1200px) {
+
+}

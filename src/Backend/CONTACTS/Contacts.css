@@ -1,9 +1,17 @@
+.contacts-block {
+  background-color: #faece3;
+}
+
 .th-icon {
   width: 25px !important;
 }
 
 .th-name {
   font-size: 25px;
+}
+
+p.contacts-text {
+  color: #a0828a;
 }
 
 
@@ -58,6 +66,19 @@
   .contact-map {
     display: none;
   }
+
+  .map-container {
+    height: 250px !important;
+  }
+
+  .contacts-text {
+    font-size: 1rem;
+  }
+
+  p.contact-text {
+    font-size: 1rem;
+  }
+
 
 }
 
@@ -118,6 +139,12 @@
   .contact-map {
     display: none !important;
   }
+
+
+  i.map-marker-alt {
+    font-size: 1vw;
+  }
+
 }
 
 

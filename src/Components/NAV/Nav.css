@@ -2,3 +2,34 @@
   background-color: #574440;
   height: 40px !important;
 }
+
+@media (max-width: 576px) {
+  .nav-block {
+    height: 500px !important;
+    display: none !important;
+  }
+
+  .nav-tell {
+    font-size: 0.6rem;
+  }
+
+  .navigation {
+    background-color: #574440;
+    height: 30px !important;
+  }
+
+  i.fas.fa-phone-alt {
+    font-size: 0.6rem;
+  }
+
+  i.far.fa-envelope {
+    font-size: 0.6rem;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .nav-block {
+    display: none !important;
+  }
+}

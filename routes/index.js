@@ -11,4 +11,4 @@ module.exports = router;
 
 app.get('/main', function (req, res) {
   res.render('main.js')
-})
+}

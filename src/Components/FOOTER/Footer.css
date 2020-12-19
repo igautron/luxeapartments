@@ -4,18 +4,23 @@
     min-height: 450px;
 }
 
+a.footer-info:hover {
+    color: #a8936c !important;
+}
+
+h4.footer-info:hover {
+    color: #a8936c !important;
+}
+
 p.footer-slogan {
     line-height: 2rem !important;
+    text-indent: 1.5rem;
+    text-align: justify;
 }
 
 
 p.footer-work {
     line-height: 2rem !important;
-}
-
-i.fas {
-    font-size: 15px;
-    color: green;
 }
 
 div.md-form {
@@ -41,5 +46,16 @@ p.footer-tell {
     font-size: 0.9rem !important;
 }
 
+@media (max-width: 576px) {
 
+    .footer-logo {
+        width: 200px;
+        justify-content: center;
+        margin: auto;
+    }
 
+    i.far.fa-envelope {
+        font-size: 15px;
+    }
+
+}

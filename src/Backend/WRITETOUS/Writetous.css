@@ -1,11 +1,11 @@
 .contact-card {
-    height: 500px !important;
+    height: 550px !important;
     width: 700px;
 }
 
 
 .card-body {
-    height: 500px !important;
+    height: 550px !important;
 }
 
 
@@ -14,20 +14,42 @@
 }
 
 #form-contact-name, #form-contact-email, #form-contact-phone, #form-contact-company {
-    width: 300px !important;
     height: 50px !important;
+    width: 100% !important;
 }
 
 #form-contact-message {
-    width: 100% !important;
     height: 50px !important;
+    width: 100% !important;
+}
+
+.btn-submit {
+    background-color: #a0828a !important;
 }
 
 
 @media (max-width: 576px) {
     .contact-card {
-        height: 500px !important;
-        width: 410px !important;
+        width: 290px !important;
+    }
+
+    .contact-area {
+        width: 100% !important;
+        height: 50px;
+    }
+
+    .col-contact {
+        height: 170px!important;
+    }
+
+    .contact-card {
+        height: 620px !important;
+        width: 700px;
+    }
+
+
+    .card-body {
+        height: 620px !important;
     }
 }
 
@@ -39,6 +61,21 @@
         width: 500px !important;
     }
 
+    .contact-card {
+        height: 500px !important;
+        width: 700px;
+    }
+
+    .contact-card {
+        height: 500px !important;
+        width: 700px;
+    }
+
+
+    .card-body {
+        height: 500px !important;
+    }
+
 }
 
 
@@ -46,6 +83,7 @@
     .contact-text {
         font-size: 1.5rem;
     }
+
 }
 
 
@@ -53,6 +91,8 @@
     .contact-text {
         font-size: 1.5rem;
     }
+
+
 }
 
 

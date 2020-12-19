@@ -1,5 +1,5 @@
 .products {
-  background-color: #edcbbf;
+  background-color: #faece3;
 }
 
 .prod-name {
@@ -134,23 +134,6 @@
 
 
 
-
-.item-to-cart {
-  border-radius: 3px !important;
-  height: 38px !important;
-  background-color: #83A34A;
-}
-
-.item-pills {
-  background-color: #83A34A;
-}
-
-.item-payment-img {
-  width: 85px;
-  height: 45px;
-}
-
-
 @media (max-width: 576px) {
   .dd-text {
     height: 5rem !important;
@@ -257,6 +240,26 @@
     font-size:  0.8rem;
   }
 
+  .prod-filtration-rooms {
+    font-size: 0.6rem;
+  }
+
+  .prod-filtration-rooms button{
+    background-color: rgba(21, 1, 1, 0.42) !important;
+    color: white;
+    outline: none !important;
+    border: 1px solid #1c0f0f;
+  }
+
+  .prod-filtration-area {
+    font-size: 0.6rem;
+  }
+
+  .prod-filtration-area button{
+    background-color: rgba(21, 1, 1, 0.42) !important;
+    color: white;
+    border: 1px solid #1c0f0f;
+  }
 
 }
 
@@ -333,6 +336,27 @@
     height: 339px;
   }
 
+  .prod-filtration-rooms {
+    font-size: 0.6rem;
+  }
+
+  .prod-filtration-rooms button{
+    background-color: #2d0101;
+    color: white;
+    outline: none !important;
+    border: 1px solid #1c0f0f;
+  }
+
+  .prod-filtration-area {
+    font-size: 0.6rem;
+  }
+
+  .prod-filtration-area button{
+    background-color: rgba(45, 1, 1, 0.58);
+    color: white;
+    border: 1px solid #1c0f0f;
+  }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -387,6 +411,27 @@
     height: 260px;
   }
 
+  .prod-filtration-rooms {
+    font-size: 1rem;
+  }
+
+  .prod-filtration-rooms button{
+    background-color: #2d0101;
+    color: white;
+    outline: none !important;
+    border: 1px solid #1c0f0f;
+  }
+
+  .prod-filtration-area {
+    font-size: 1rem;
+  }
+
+  .prod-filtration-area button{
+    background-color: rgba(45, 1, 1, 0.58);
+    color: white;
+    border: 1px solid #1c0f0f;
+  }
+
 }
 
 @media (min-width: 991px) and (max-width: 1200px) {
@@ -430,6 +475,27 @@
     height: 375px;
   }
 
+  .prod-filtration-rooms {
+    font-size: 1rem;
+  }
+
+  .prod-filtration-rooms button{
+    background-color: #2d0101;
+    color: white;
+    outline: none !important;
+    border: 1px solid #1c0f0f;
+  }
+
+  .prod-filtration-area {
+    font-size: 1rem;
+  }
+
+  .prod-filtration-area button{
+    background-color: rgba(45, 1, 1, 0.58);
+    color: white;
+    border: 1px solid #1c0f0f;
+  }
+
 }
 
 
@@ -451,24 +517,26 @@
     margin-left: 25px !important;
   }
 
-  .prod-name {
-    height: 4.5rem;
+  .prod-filtration-rooms {
+    font-size: 1rem;
   }
 
-  .prod-describe {
-    height: 6rem;
+  .prod-filtration-rooms button{
+    background-color: rgba(24, 1, 1, 0.51) !important;
+    color: white;
+    outline: none !important;
+    border: 1px solid #1c0f0f;
   }
 
-  .prod-price {
-    height: ;
+  .prod-filtration-area {
+    font-size: 1rem;
+
   }
 
-  .prod-btn {
-    height: ;
-  }
-
-  .prod-img {
-    height: 330px;
+  .prod-filtration-area button{
+    background-color: rgba(16, 1, 1, 0.71) !important;
+    color: white;
+    border: 1px solid #2d1c1c;
   }
 }
 
