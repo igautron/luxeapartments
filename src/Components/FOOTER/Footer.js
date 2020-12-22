@@ -2,7 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import './Footer.css'
 import {Link, BrowserRouter as Router, NavLink} from 'react-router-dom';
-import {MDBBtn, MDBCol, MDBRow, MDBInput } from "mdbreact";
+import {MDBBtn, MDBCol, MDBRow, MDBInput, MDBNavLink } from "mdbreact";
 
 
 import imageSrc from '../../Image/StandardLogoFiles/OriginalonTransparent.png'
@@ -37,9 +37,9 @@ class Footer extends React.Component  {
                                </MDBCol>
                                <MDBCol className='col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pt-4 py-sm-5 pr-0 px-0 pl-lg-0 pl-md-3 pl-sm-3 pb-0'>
                                    <h4 className='footer-info white-ic py-3 pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'>CATEGORIES</h4>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Studio apartments</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>One-room apartments</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Double-room apartments</a></p>
+                                   <MDBNavLink to="/category/Studio apartments"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a className='footer-info white-ic'>Studio apartments</a></p></MDBNavLink>
+                                   <MDBNavLink to="/category/One-room apartments"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a className='footer-info white-ic'>One-room apartments</a></p></MDBNavLink>
+                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href="/category/Two-room apartments" className='footer-info white-ic'>Double-room apartments</a></p>
                                    <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Three-room apartments</a></p>
                                    <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Three-room apartments</a></p>
                                    <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Apartments in Center</a></p>

@@ -11,48 +11,100 @@ import {
     MDBLink
 } from 'mdbreact';
 
+import { withRouter } from 'react-router-dom';
 import 'jquery';
 import 'mdbreact/dist/css/mdb.css';
 
 
 import Item from './../ITEMS/Item/Item'
 
+let cl = console.log
 
 class Products extends React.Component  {
 
   constructor(props) {
-        super(props)
+    super(props)
 
-
-     this.state = {
-        collapseID: '',
-        value: 0,
-        items: {
-            default: '1',
-        },
-             products: [],
+    this.state = {
+      collapseID: '',
+      value: 0,
+      items: {
+          default: '1',
+      },
+      products: [],
+      filter: {
+        categories: {},
+        areas: {}
+      }
     }
-
-
   }
 
 
     componentDidMount(props) {
-        fetch('http://yvonne-server.loc/api/products')
+        fetch('http://luxapartments-server.loc/api/products')
             .then(response => response.json())
-            .then(products => this.setState( {products: products.products.data}));
+            .then(data => this.setState( {products: data.products}));
     }
 
-    chooseTopHandle = (type) => {
-        // this.props.setFilterTop(type)
+    isCatActive = (category) => {
+      if (this.state.filter.categories[category]) return 'active'
+      else return ''
     }
 
-    isActive = (type) => {
-        const category = window.location.pathname.split('/').pop()
-        return category === type ? 'active' : ''
+    isAreaActive = (area) => {
+      if (this.state.filter.areas[area]) return 'active'
+      else return ''
     }
 
+    chooseCategory = (category) => {
+      let filter = {...this.state.filter}
+      if (filter.categories[category]) {
+        delete filter.categories[category]
+      }else{
+        filter.categories[category] = 1
+      }
+      this.doAjax(filter)
+      this.setState({filter})
+    }
 
+    chooseArea = (area) => {
+      let filter = {...this.state.filter}
+      if (filter.areas[area]) {
+        delete filter.areas[area]
+      }else{
+        filter.areas[area] = 1
+      }
+      this.doAjax(filter)
+      this.setState({filter})
+    }
+
+    doAjax = (filter) => {
+      cl(filter)
+        let url
+        if (Object.keys(filter).length !== 0) {
+            url = 'http://luxapartments-server.loc/api/filter?filter='+encodeURIComponent(JSON.stringify(filter))
+        }else{
+            url = 'http://luxapartments-server.loc/api/products'
+        }
+        fetch(url)
+            .then(response => response.json())
+            .then(data => this.setState( {products: data.products}));
+    }
+
+    componentDidUpdate(prevProps) {
+        cl(prevProps.match.params.category)
+        cl(this.props.match.params.category)
+        // if (window.location.pathname.indexOf('/category') === 0) {
+            if (prevProps.match.params.category !== this.props.match.params.category) {
+               this.chooseCategory(this.props.match.params.category) 
+            } 
+        // }
+        // if (window.location.pathname.indexOf('/brand') === 0) {
+        //     if (prevProps.match.params.brand !== this.props.match.params.brand) {
+        //        this.setFilterBrand(this.props.match.params.brand)
+        //     } 
+        // }
+    }
 
     render() {
         return (
@@ -67,45 +119,45 @@ class Products extends React.Component  {
                                   <div>
                                       <div className='d-inline-flex d-sm-inline-flex prod-filtration-rooms my-1 w-100'>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/studio" className='p-0'>
-                                                     <button onClick={this.chooseTopHandle.bind(null, 'studio')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('studio')}>Studio apartments</button>
+                                              <MDBLink className='p-0'>
+                                                     <button onClick={this.chooseCategory.bind(null, 'Studio apartments')} className={'mb-1 w-100 p-0 py-2 '+this.isCatActive('Studio apartments')}>Studio apartments</button>
                                               </MDBLink>
                                           </div>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/oneroom" className='p-0'>
-                                                     <button onClick={this.chooseTopHandle.bind(null, 'oneroom')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('oneroom')}>One-room apartments</button>
+                                              <MDBLink className='p-0'>
+                                                     <button onClick={this.chooseCategory.bind(null, 'One-room apartments')} className={'mb-1 w-100 p-0 py-2 '+this.isCatActive('One-room apartments')}>One-room apartments</button>
                                               </MDBLink>
                                           </div>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/tworoom" className='p-0'>
-                                                    <button onClick={this.chooseTopHandle.bind(null, 'tworoom')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('tworoom')}>Two-room apartments</button>
+                                              <MDBLink className='p-0'>
+                                                    <button onClick={this.chooseCategory.bind(null, 'Two-room apartments')} className={'mb-1 w-100 p-0 py-2 '+this.isCatActive('Two-room apartments')}>Two-room apartments</button>
                                               </MDBLink>
                                           </div>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/threeroom" className='p-0'>
-                                                    <button onClick={this.chooseTopHandle.bind(null, 'threeroom')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('threeroom')}>Three room apartments</button>
+                                              <MDBLink className='p-0'>
+                                                    <button onClick={this.chooseCategory.bind(null, 'Three room apartments')} className={'mb-1 w-100 p-0 py-2 '+this.isCatActive('Three room apartments')}>Three room apartments</button>
                                               </MDBLink>
                                           </div>
                                       </div>
                                       <div className='d-inline-flex d-sm-inline-flex prod-filtration-rooms my-1 w-100'>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/center" className='p-0'>
-                                                     <button onClick={this.chooseTopHandle.bind(null, 'center')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('center')}>Center area</button>
+                                              <MDBLink className='p-0'>
+                                                     <button onClick={this.chooseArea.bind(null, 'Center area')} className={'mb-1 w-100 p-0 py-2 '+this.isAreaActive('Center area')}>Center area</button>
                                               </MDBLink>
                                           </div>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/arkadia" className='p-0' >
-                                                     <button onClick={this.chooseTopHandle.bind(null, 'arkadia')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('arkadia')}>Arkadia</button>
+                                              <MDBLink className='p-0' >
+                                                     <button onClick={this.chooseArea.bind(null, 'Arkadia')} className={'mb-1 w-100 p-0 py-2 '+this.isAreaActive('Arkadia')}>Arkadia</button>
                                               </MDBLink>
                                           </div>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/nemo" className='p-0'>
-                                                     <button onClick={this.chooseTopHandle.bind(null, 'nemo')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('nemo')}>Nemo</button>
+                                              <MDBLink className='p-0'>
+                                                     <button onClick={this.chooseArea.bind(null, 'Nemo')} className={'mb-1 w-100 p-0 py-2 '+this.isAreaActive('Nemo')}>Nemo</button>
                                               </MDBLink>
                                           </div>
                                           <div className='col-3 px-1'>
-                                              <MDBLink to="/category/other" className='p-0'>
-                                                     <button onClick={this.chooseTopHandle.bind(null, 'other')} className={'mb-1 w-100 p-0 py-2 '+this.isActive('other')}>Other area</button>
+                                              <MDBLink className='p-0'>
+                                                     <button onClick={this.chooseArea.bind(null, 'Other area')} className={'mb-1 w-100 p-0 py-2 '+this.isAreaActive('Other area')}>Other area</button>
                                               </MDBLink>
                                           </div>
                                       </div>
@@ -130,4 +182,4 @@ class Products extends React.Component  {
     }
 }
 
-export default Products;
+export default withRouter(Products);
