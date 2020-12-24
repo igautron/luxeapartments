@@ -38,6 +38,9 @@ class App extends React.Component {
                     <Route path='/category/:category'>
                         <Products />
                     </Route>
+                    <Route path='/area/:area'>
+                        <Products />
+                    </Route>
                     <Route path='/about' exact>
                         <About />
                     </Route>

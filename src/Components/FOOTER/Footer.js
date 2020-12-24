@@ -39,12 +39,11 @@ class Footer extends React.Component  {
                                    <h4 className='footer-info white-ic py-3 pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'>CATEGORIES</h4>
                                    <MDBNavLink to="/category/Studio apartments"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a className='footer-info white-ic'>Studio apartments</a></p></MDBNavLink>
                                    <MDBNavLink to="/category/One-room apartments"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a className='footer-info white-ic'>One-room apartments</a></p></MDBNavLink>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href="/category/Two-room apartments" className='footer-info white-ic'>Double-room apartments</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Three-room apartments</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Three-room apartments</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Apartments in Center</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Arkadia area apartments</a></p>
-                                   <p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Nemo area apartments</a></p>
+                                   <MDBNavLink to="/category/Two-room apartments"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a className='footer-info white-ic'>Double-room apartments</a></p></MDBNavLink>
+                                   <MDBNavLink to="/category/Three room apartments"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Three-room apartments</a></p></MDBNavLink>
+                                   <MDBNavLink to="/area/Center area"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Apartments in Center</a></p></MDBNavLink>
+                                   <MDBNavLink to="/area/Arkadia"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Arkadia area apartments</a></p></MDBNavLink>
+                                   <MDBNavLink to="/area/Nemo"><p className='pl-4 pl-xl-5 pl-lg-5 pl-md-0 pl-sm-0'><a href='#' className='footer-info white-ic'>Nemo area apartments</a></p></MDBNavLink>
                                </MDBCol>
                                <MDBCol className='col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pt-2 pb-3 py-sm-5 pl-0 pl-lg-0 pl-md-4 px-0'>
                                    <h4 className='footer-info white-ic pl-4 pl-sm-5 pl-md-5 pl-lg-4 py-3 pb-2'>CONTACTS</h4>
